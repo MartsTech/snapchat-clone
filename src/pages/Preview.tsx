@@ -13,10 +13,13 @@ import styled from "styled-components";
 import { resetCameraImg, selectCameraImg } from "../features/cameraSlice";
 import SendIcon from "@material-ui/icons/Send";
 import { v4 as uuid } from "uuid";
-import { db, storage } from "../firebase";
+import { auth, db, storage } from "../firebase";
 import firebase from "firebase/app";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Preview: React.FC = () => {
+  const [user] = useAuthState(auth);
+
   const cameraImg = useSelector(selectCameraImg);
 
   const dispatch = useDispatch();
@@ -50,10 +53,9 @@ const Preview: React.FC = () => {
           .then((url) => {
             db.collection("posts").add({
               imageUrl: url,
-              username: "Martin Velkov",
+              username: user?.displayName,
               read: false,
-              profilePic:
-                "https://lh3.googleusercontent.com/a-/AOh14Gge4WVENvl9bdKUN7jaaE6RqaS-2o3F5Whp44Bf=s96-c",
+              profilePic: user?.photoURL,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
             history.replace("/chats");

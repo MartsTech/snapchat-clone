@@ -5,18 +5,39 @@ import React from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import styled from "styled-components";
 import { Chat } from "../components/Chat";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import { PostContent } from "../types";
+import { useAuthState } from "react-firebase-hooks/auth";
+import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
+import { useHistory } from "react-router";
 
 const Chats: React.FC = () => {
+  const [user] = useAuthState(auth);
+
   const [posts] = useCollection(
     db.collection("posts").orderBy("timestamp", "desc")
   );
 
+  const history = useHistory();
+
+  const signOut = () => {
+    auth.signOut();
+  };
+
+  const takeSnap = () => {
+    history.push("/");
+  };
+
   return (
     <ChatsContainer>
       <ChatsHeader>
-        <ChatsAvatar />
+        <ChatsAvatar
+          onClick={signOut}
+          src={user?.photoURL || ""}
+          alt={user?.displayName || ""}
+        >
+          {user?.email && user.email[0].toUpperCase()}
+        </ChatsAvatar>
         <ChatsSearch>
           <SearchIcon />
           <input placeholder="Friends" type="text" />
@@ -46,6 +67,7 @@ const Chats: React.FC = () => {
           );
         })}
       </ChatsPosts>
+      <ChatsTakePicIcon onClick={takeSnap} fontSize="large" />
     </ChatsContainer>
   );
 };
@@ -71,6 +93,7 @@ const ChatsAvatar = styled(Avatar)`
   object-fit: contain;
   height: 25px !important;
   width: 25px !important;
+  cursor: pointer;
 `;
 
 const ChatsSearch = styled.div`
@@ -92,9 +115,17 @@ const ChatsSearch = styled.div`
       opacity: 1;
     }
   }
+
+  > svg {
+    color: white;
+    font-size: 15px !important;
+  }
 `;
 
-const ChatsIconChat = styled(ChatBubbleIcon)``;
+const ChatsIconChat = styled(ChatBubbleIcon)`
+  color: white;
+  font-size: 18px !important;
+`;
 
 const ChatsPosts = styled.div`
   box-shadow: 1px -7px 7px -6px rgba(0, 0, 0, 0.44);
@@ -111,5 +142,21 @@ const ChatsPosts = styled.div`
 
   ::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+const ChatsTakePicIcon = styled(RadioButtonUncheckedIcon)`
+  position: absolute;
+  background: white;
+  border-radius: 200px;
+  color: gray;
+  font-size: 40px !important;
+  cursor: pointer;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  :hover {
+    opacity: 0.8;
   }
 `;
