@@ -6,7 +6,7 @@ import Webcam from "react-webcam";
 import styled from "styled-components";
 import { setCameraImg } from "../features/cameraSlice";
 
-const videoConstraints: MediaTrackConstraints = {
+const videoConstraints = {
   width: 300,
   height: 450,
   facingMode: "user",
@@ -31,6 +31,8 @@ const WebcamCapture: React.FC = () => {
     <WebcamCaptureContainer>
       <Webcam
         ref={webcamRef}
+        height={videoConstraints.height}
+        width={videoConstraints.width}
         audio={false}
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
@@ -44,6 +46,8 @@ export default WebcamCapture;
 
 const WebcamCaptureContainer = styled.div`
   position: relative;
+  width: 300;
+  height: 450;
 `;
 
 const CaptureButton = styled(RadioButtonUncheckedIcon)`
