@@ -11,7 +11,7 @@
     "splash": {
       "image": "./assets/meta/icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFFC00"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,7 +23,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/meta/icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#FFFC00"
       }
     },
     "githubUrl": "https://github.com/MartsTech/snapchat-clone"
