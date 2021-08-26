@@ -7,14 +7,13 @@ import { useStore } from "../../../stores/store";
 const HomeHeaderLeft = () => {
   const { user, signOut } = useStore().userStore;
 
+  if (!user) {
+    return null;
+  }
+
   return (
     <TouchableOpacity onPress={signOut} activeOpacity={0.5}>
-      <Avatar
-        rounded
-        source={
-          user?.photoURL ? { uri: user.photoURL } : require("../../../../assets/images/avatar.png")
-        }
-      />
+      <Avatar rounded source={{ uri: user.photoURL }} />
     </TouchableOpacity>
   );
 };

@@ -1,4 +1,4 @@
-import { Camera, CameraCapturedPicture } from "expo-camera";
+import { Camera } from "expo-camera";
 import firebase from "firebase/app";
 import { makeAutoObservable, runInAction } from "mobx";
 import { Alert } from "react-native";
@@ -9,7 +9,7 @@ import { store } from "./store";
 
 class CameraStore {
   camera: Camera | null = null;
-  picture?: CameraCapturedPicture;
+  pictureUri?: string;
   loading = false;
 
   constructor() {
@@ -19,7 +19,7 @@ class CameraStore {
   reset = () => {
     this.camera = null;
     this.loading = false;
-    this.picture = undefined;
+    this.pictureUri = undefined;
   };
 
   takePicture = async () => {
@@ -29,7 +29,7 @@ class CameraStore {
 
     this.loading = true;
 
-    const picture = await this.camera.takePictureAsync({ quality: 1, base64: true });
+    const picture = await this.camera.takePictureAsync({ quality: 0.7 });
 
     runInAction(() => {
       this.loading = false;
@@ -39,7 +39,7 @@ class CameraStore {
       return false;
     }
 
-    this.picture = picture;
+    this.pictureUri = picture.uri;
 
     return true;
   };
@@ -47,7 +47,7 @@ class CameraStore {
   sendPicture = async () => {
     const { user } = store.userStore;
 
-    if (!this.picture?.base64 || this.loading || !user) {
+    if (!this.pictureUri || this.loading || !user) {
       return false;
     }
 
@@ -55,7 +55,7 @@ class CameraStore {
 
     const id = uuid();
 
-    const response = await fetch(this.picture.uri);
+    const response = await fetch(this.pictureUri);
     const blob = await response.blob();
 
     const uploadTask = storage.ref(`posts/${id}`).put(blob);

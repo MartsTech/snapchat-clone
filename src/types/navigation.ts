@@ -8,6 +8,7 @@ export type AppStackParamList = {
   Home: undefined;
   PostsCreate: undefined;
   PostsPreview: undefined;
+  PostsView: undefined;
 };
 
 export type AppNavigationProp = NativeStackNavigationProp<AppStackParamList>;

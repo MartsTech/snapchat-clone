@@ -4,6 +4,7 @@ import HomeScreen from "../../screens/HomeScreen";
 import PostsCreateScreen from "../../screens/PostsCreateScreen";
 import { AppStackParamList } from "../../types/navigation";
 import PostsPreview from "../posts/preview/PostsPreview";
+import PostsView from "../posts/view/PostsView";
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -15,25 +16,21 @@ const AppNavigator = () => {
         headerStyle: { backgroundColor: "#FFFC00" },
         headerTitleStyle: { color: "black" },
         headerTintColor: "black",
+        title: "",
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen
         name="PostsCreate"
         component={PostsCreateScreen}
-        options={{
-          headerBackTitle: "Back to Posts",
-          title: "",
-        }}
+        options={{ headerBackTitle: "Back to Posts" }}
       />
       <Stack.Screen
         name="PostsPreview"
         component={PostsPreview}
-        options={{
-          headerBackTitle: "",
-          title: "",
-        }}
+        options={{ headerBackTitle: "Back to Create" }}
       />
+      <Stack.Screen name="PostsView" component={PostsView} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };

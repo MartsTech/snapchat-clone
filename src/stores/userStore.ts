@@ -1,9 +1,9 @@
 import { AuthSessionResult } from "expo-auth-session";
 import firebase from "firebase/app";
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, reaction, runInAction } from "mobx";
 import { auth } from "../config/firebase";
 import { User } from "../types/user";
-import { resetStore } from "./store";
+import { resetStore, store } from "./store";
 
 class UserStore {
   user: User | null = null;
@@ -11,6 +11,15 @@ class UserStore {
 
   constructor() {
     makeAutoObservable(this);
+
+    reaction(
+      () => this.user,
+      (user) => {
+        if (user) {
+          store.postStore.loadPosts();
+        }
+      },
+    );
   }
 
   reset = () => {
