@@ -1,56 +1,67 @@
 {
-  "name": "snapchat-clone",
-  "version": "1.0.0",
   "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "lint": "eslint --ext .tsx --ext .ts src/",
+    "format": "prettier --check ./src"
+  },
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
-    "@reduxjs/toolkit": "^1.2.5",
-    "firebase": "^8.3.0",
-    "gen-env-types": "^1.2.0",
-    "react": "^17.0.1",
-    "react-countdown-circle-timer": "^2.5.0",
-    "react-dom": "^17.0.1",
-    "react-firebase-hooks": "^3.0.2",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "react-spinkit": "^3.0.0",
-    "react-timeago": "^5.2.0",
-    "react-webcam": "^5.2.3",
-    "redux-persist": "^6.0.0",
-    "styled-components": "^5.2.1",
+    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/native-stack": "^6.1.0",
+    "expo": "~42.0.1",
+    "expo-auth-session": "~3.3.1",
+    "expo-camera": "~11.2.2",
+    "expo-random": "~11.2.0",
+    "expo-status-bar": "~1.0.4",
+    "firebase": "8.2.3",
+    "mobx": "^6.3.2",
+    "mobx-react-lite": "^3.2.0",
+    "moment": "^2.29.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-countdown-circle-timer": "^2.5.3",
+    "react-native-dotenv": "^3.2.0",
+    "react-native-elements": "^3.4.2",
+    "react-native-get-random-values": "^1.7.0",
+    "react-native-safe-area-context": "3.2.0",
+    "react-native-screens": "~3.4.0",
+    "react-native-svg": "^12.1.1",
+    "react-native-timeago": "^0.5.0",
     "uuid": "^8.3.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "gen-env": "npx gen-env-types .env -o src/env.d.ts -e ."
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@types/react": "~17.0.19",
+    "@types/react-native": "~0.64.13",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "typescript": "~4.3.5"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --ext .tsx --ext .ts src/ --fix"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "./src/**": [
+      "prettier --write ."
     ]
   },
-  "devDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.2",
-    "@types/react-redux": "^7.1.16",
-    "@types/react-router-dom": "^5.1.7",
-    "@types/react-spinkit": "^3.0.6",
-    "@types/react-timeago": "^4.1.2",
-    "@types/styled-components": "^5.1.8",
-    "@types/uuid": "^8.3.0",
-    "typescript": "^4.2.3"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

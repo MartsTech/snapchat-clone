@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "scheme": "exp",
+    "userInterfaceStyle": "automatic",
+    "name": "Snapchat Clone",
+    "description": "Snapchat Clone created with React Native",
+    "slug": "snapchat-clone",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/meta/icon.png",
+    "splash": {
+      "image": "./assets/meta/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFC00"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/meta/icon.png",
+        "backgroundColor": "#FFFC00"
+      }
+    },
+    "githubUrl": "https://github.com/MartsTech/snapchat-clone"
+  }
+}
