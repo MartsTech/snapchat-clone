@@ -18,7 +18,7 @@
     "expo-camera": "~11.2.2",
     "expo-random": "~11.2.0",
     "expo-status-bar": "~1.0.4",
-    "firebase": "9.0.1",
+    "firebase": "9.0.2",
     "mobx": "^6.3.3",
     "mobx-react-lite": "^3.2.1",
     "moment": "^2.29.1",
