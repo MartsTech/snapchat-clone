@@ -7,3 +7,7 @@ updates:
     open-pull-requests-limit: 10
     assignees:
       - MartsTech
+    ignore:
+      - dependency-name: "firebase"
+      - dependency-name: "react-native-safe-area-context"
+      - dependency-name: "react-native-screens"
