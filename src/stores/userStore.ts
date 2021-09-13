@@ -18,7 +18,7 @@ class UserStore {
         if (user) {
           store.postStore.loadPosts();
         }
-      },
+      }
     );
   }
 

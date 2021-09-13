@@ -30,7 +30,11 @@ const AppNavigator = () => {
         component={PostsPreview}
         options={{ headerBackTitle: "Back to Create" }}
       />
-      <Stack.Screen name="PostsView" component={PostsView} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="PostsView"
+        component={PostsView}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };

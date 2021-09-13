@@ -9,7 +9,10 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Image style={styles.image} source={require("../../../../assets/meta/icon.png")} />
+      <Image
+        style={styles.image}
+        source={require("../../../../assets/meta/icon.png")}
+      />
       <Button
         containerStyle={styles.buttonContainer}
         titleStyle={styles.buttonTitle}

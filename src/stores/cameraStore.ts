@@ -80,7 +80,7 @@ class CameraStore {
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
           });
-      },
+      }
     );
 
     runInAction(() => {

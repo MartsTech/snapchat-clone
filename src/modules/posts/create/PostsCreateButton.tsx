@@ -18,7 +18,11 @@ const PostsCreateButton = () => {
   };
 
   return (
-    <TouchableOpacity style={styles.container} activeOpacity={0.5} onPress={handleTakePicture}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.5}
+      onPress={handleTakePicture}
+    >
       <Icon type="material" name="circle" size={40} color="white" />
     </TouchableOpacity>
   );

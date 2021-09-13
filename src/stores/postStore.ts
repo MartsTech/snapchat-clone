@@ -28,7 +28,7 @@ class PostStore {
 
   get posts() {
     return Array.from(this.postsRegistery.values()).sort(
-      (a, b) => b.timestamp.getTime() - a.timestamp.getTime(),
+      (a, b) => b.timestamp.getTime() - a.timestamp.getTime()
     );
   }
 
@@ -62,7 +62,7 @@ class PostStore {
   };
 
   private setPostsFromSnapshot = (
-    snapshot: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>,
+    snapshot: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>
   ) => {
     if (snapshot.size < this.postsLimit) {
       this.hasMore = false;
@@ -72,8 +72,13 @@ class PostStore {
 
     snapshot.docs.forEach((doc) => {
       // @ts-ignore
-      const lastTimestamp = new Date(this.lastPostTimestamp?.toDate()).getTime();
-      const currentTimestamp = new Date(doc.data().timestamp?.toDate()).getTime();
+      const lastTimestamp = new Date(
+        // @ts-ignore
+        this.lastPostTimestamp?.toDate()
+      ).getTime();
+      const currentTimestamp = new Date(
+        doc.data().timestamp?.toDate()
+      ).getTime();
 
       if (currentTimestamp < lastTimestamp) {
         this.lastPostTimestamp = doc.data().timestamp;
@@ -106,7 +111,7 @@ class PostStore {
       {
         read: true,
       },
-      { merge: true },
+      { merge: true }
     );
 
     return true;

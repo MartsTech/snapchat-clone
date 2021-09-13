@@ -9,7 +9,10 @@ interface PostsListItemProps {
   handleSelect: (id: string) => void;
 }
 
-const PostsListItem: React.FC<PostsListItemProps> = ({ post, handleSelect }) => {
+const PostsListItem: React.FC<PostsListItemProps> = ({
+  post,
+  handleSelect,
+}) => {
   const { id, read, timestamp, profilePic, username } = post;
 
   return (

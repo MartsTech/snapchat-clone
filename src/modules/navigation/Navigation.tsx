@@ -13,7 +13,11 @@ const Navigation = () => {
     return <Loading />;
   }
 
-  return <NavigationContainer>{!user ? <AuthNavigator /> : <AppNavigator />}</NavigationContainer>;
+  return (
+    <NavigationContainer>
+      {!user ? <AuthNavigator /> : <AppNavigator />}
+    </NavigationContainer>
+  );
 };
 
 export default observer(Navigation);

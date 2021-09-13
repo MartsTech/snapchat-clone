@@ -7,7 +7,8 @@ import { AppNavigationProp } from "../../../types/navigation";
 import PostsListItem from "./PostsListItem";
 
 const PostsList = () => {
-  const { posts, postsLimit, hasMore, loadMore, selectPost } = useStore().postStore;
+  const { posts, postsLimit, hasMore, loadMore, selectPost } =
+    useStore().postStore;
   const navigation = useNavigation<AppNavigationProp>();
 
   const handleSelect = (id: string) => {
@@ -23,7 +24,9 @@ const PostsList = () => {
       style={styles.container}
       data={posts}
       keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <PostsListItem post={item} handleSelect={handleSelect} />}
+      renderItem={({ item }) => (
+        <PostsListItem post={item} handleSelect={handleSelect} />
+      )}
       initialNumToRender={postsLimit}
       onEndReachedThreshold={0.5}
       onEndReached={loadMore}
