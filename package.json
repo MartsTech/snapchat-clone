@@ -15,7 +15,7 @@
     "test-all": "yarn check-format && yarn check-lint && yarn check-types && yarn build"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.4",
+    "@react-navigation/native": "^6.0.5",
     "@react-navigation/native-stack": "^6.2.2",
     "expo": "~42.0.4",
     "expo-auth-session": "~3.3.1",
