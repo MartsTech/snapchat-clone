@@ -40,7 +40,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.16.0",
     "@types/react": "~17.0.32",
     "@types/react-native": "~0.66.1",
     "@types/uuid": "^8.3.1",
