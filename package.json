@@ -17,7 +17,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
-    "expo": "~43.0.1",
+    "expo": "~43.0.2",
     "expo-auth-session": "~3.4.2",
     "expo-camera": "~12.0.3",
     "expo-random": "~12.0.1",
