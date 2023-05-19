@@ -1,7 +1,5 @@
 <h1 align="center">
-  <a href="https://expo.dev/@martstech/snapchat-clone">
-    <img width="200px" src="https://raw.githubusercontent.com/MartsTech/snapchat-clone/main/assets/meta/icon.png" alt="Snapchat Logo" />
-  </a>
+  <img width="200px" src="https://raw.githubusercontent.com/MartsTech/snapchat-clone/main/assets/meta/icon.png" alt="Snapchat Logo" />
   <br />
   Snapchat Clone
   <br />
@@ -17,7 +15,6 @@
 </p>
 
 <p align="center">
-  <a href="#demo">Demo</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#key-technologies">Key Technologies</a> •
   <a href="#setup">Setup</a> •
@@ -29,12 +26,6 @@
   <img width="400px" height="800px" style="object-fit: contain" src="https://raw.githubusercontent.com/MartsTech/snapchat-clone/main/assets/screenshots/posts.png" alt="posts" />
   <img width="400px" height="800px" style="object-fit: contain" src="https://raw.githubusercontent.com/MartsTech/snapchat-clone/main/assets/screenshots/post.png" alt="post" />
 </div>
-
----
-
-## Demo
-
-Here is a working live demo [here](https://expo.dev/@martstech/snapchat-clone)
 
 ---
 
